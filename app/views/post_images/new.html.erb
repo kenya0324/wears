@@ -1,0 +1,23 @@
+<div class="container">
+<div class="row">
+<div class='col-md-2 col-md-offset-5'>
+  <%= form_for(@post_image, url: post_images_path) do |f| %>
+ <div class="row">
+   <h4>Image</h4>
+   <%= f.attachment_field :image %>
+ </div>
+ <div class="row">
+   <h4>Itemname</h4>
+   <%= f.text_field :item_name %>
+ </div>
+ <div class="row">
+   <h4>Text</h4>
+   <%= f.text_area :caption %>
+ </div>
+ <div class="row">
+   <input class="btn btn-inverse btn-lg" type="submit" value="Post">
+ </div>
+  <% end %>
+</div>
+</div>
+</div>

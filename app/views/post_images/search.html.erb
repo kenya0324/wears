@@ -1,0 +1,37 @@
+<div class="container">
+ <div class="row">
+
+<% if @user_or_post_image == "1"%>
+    <div class="row">
+    <h1>User</h1>
+    </div>
+    <div class="row">
+    <% @users.each do |user| %>
+    </div>
+    <div class="row">
+    <%= user.name %>
+    </div>
+    <% end %>
+
+<% elsif @user_or_post_image == "2" %>
+    <div class="row">
+    <h2>PostImage</h2>
+    </div>
+    <% @post_images.each do |post_image| %>
+    <div class="row">
+    <a href="<%= post_image_path(post_image) %>"><%= attachment_image_tag post_image, :image,:fill, 300, 300 %></a>
+    </div>
+    <div class="row">
+    <a href="<%= user_path(post_image.user) %>"><%= post_image.user.name %></a>
+    </div>
+    <div class="row">
+    <%= post_image.item_name %></a>
+    </div>
+    <div class="row">
+    <%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %>
+    </div>
+    <% end %>
+<% else %>
+<% end %>
+ </div>
+</div>

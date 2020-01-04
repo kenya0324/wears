@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Wears</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <header class="navbar-white" style="border-radius: 0px;">
+   <div class="container">
+    <nav class='nav navbar-nav navbar-left' >
+      <h1>Wears</h1>
+     </nav>
+      <ul class="nav navbar-nav navbar-right" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
+       <% if user_signed_in? %>
+       <li class="">
+         <%= link_to "Home", post_images_path %>
+       </li>
+       <li>
+         <%= link_to 'Mypage', user_path(current_user.id) %>
+       </li>
+       <li>
+         <%= link_to 'Post', new_post_image_path %>
+       </li>
+       <li>
+         <%= link_to "履歴一覧", search_path %>
+       <li>
+         <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+       </li>
+       <% else %>
+       <li class="">
+         <%= link_to "Signup", new_user_registration_path %>
+       </li>
+       <li>
+         <%= link_to "Login", new_user_session_path %>
+       </li>
+       <% end %>
+      </ul>
+     </div>
+   </div>
+  </header>
+
+  <%= yield %>
+
+  <footer>
+    <div class="container">
+     <nav class='nav navbar-nav navbar-left' >
+      <p>wears.inc</p>
+     </nav>
+    </div>
+  </footer>
+  </body>
+</html>

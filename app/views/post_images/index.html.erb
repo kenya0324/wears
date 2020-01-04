@@ -1,0 +1,25 @@
+<div class="container">
+ <div class="row">
+  <div class="col-md-8">
+  <h2>Items</h2>
+    <div class="row">
+    <%= render 'search' %>
+    </div>
+	<% @post_images.each do |post_image| %>
+	<div class="row">
+	<a href="<%= post_image_path(post_image) %>"><%= attachment_image_tag post_image, :image,:fill, 300, 300 %></a>
+	</div>
+	<div class="row">
+	<a href="<%= user_path(post_image.user) %>"><%= post_image.user.name %></a>
+	</div>
+	<div class="row">
+	<%= post_image.item_name %></a>
+    </div>
+    <div class="row">
+	<%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %>
+    </div>
+    (<%= post_image.liked_users.count %>)
+	<% end %>
+  </div>
+ </div>
+</div>

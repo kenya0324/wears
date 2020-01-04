@@ -1,0 +1,24 @@
+<div class="container">
+ <div class="row">
+  <h2>Edit Profile</h2>
+  <%= form_for(@user) do |f| %>
+  <div class="row">
+  <h4>name</h4>
+  <%= f.text_field :name, autofocus: true, class:"form-control", id:"inputEmail", placeholder:"Name"%>
+  </div>
+  <div class="row">
+  <h4>introduction</h4>
+  <%= f.text_area :introduction %>
+  <div class="row">
+  <h4>image</h4>
+  <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, class: "img-circle pull-left profile-thumb", fallback: "no_image-c7305210e2d30bf8f19461ca05a151bba6413a44a35124f673246160efefdc5e.jpg"%>
+  </div>
+  <div class="row">
+  <%= f.attachment_field :profile_image, placeholder: "Profile Image", class: "user-edit-form" %>
+  </div>
+  <div class="row">
+  <%= f.submit "Save", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
+  </div>
+  <% end %>
+ </div>
+</div>
