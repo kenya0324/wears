@@ -91,6 +91,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.action_cable.allowed_request_origins = [ 'http://ec2-18-221-246-181.us-east-2.compute.amazonaws.com/', /http:\/\/ec2-18-221-246-181.us-east-2.compute.amazonaws.com.*/ ]
 end
 
-　config.action_cable.allowed_request_origins = [ 'http://ec2-18-221-246-181.us-east-2.compute.amazonaws.com/', /http:\/\/ec2-18-221-246-181.us-east-2.compute.amazonaws.com.*/ ]
+
